@@ -13,3 +13,14 @@
 # 5-й день: 2,93
 # 6-й день: 3,22
 # Ответ: на 6-й день спортсмен достиг результата — не менее 3 км.
+
+a = 2  # can to do
+b = 3  # need to do
+day = 1  # first day
+
+while True:
+    day = day + 1
+    a = a * 1.1
+    if a > b:
+        print(b)
+        break
