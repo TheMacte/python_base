@@ -16,7 +16,7 @@
 
 a = 2  # can to do
 b = 3  # need to do
-day = 1  # first day
+day = 1
 
 while True:
     day = day + 1
