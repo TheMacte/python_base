@@ -8,14 +8,14 @@ except ValueError:
     month_num = 0
     print('Не похоже на число')
 
-seasons_list = (False, 'зима', 'зима', 'весна', 'весна', 'весна',
+seasons_list = ('зима', 'зима', 'весна', 'весна', 'весна',
                 'лето', 'лето', 'лето', 'осень', 'осень', 'осень', 'зима')
 
 seasons_dict = {1: 'зима', 2: 'зима', 3: 'весна', 4: 'весна', 5: 'весна', 6: 'лето',
                 7: 'лето', 8: 'лето', 9: 'осень', 10: 'осень', 11: 'осень', 12: 'зима'}
 
 if 1 <= month_num <= 12:
-    print(f'Через list: {seasons_list[month_num]}')
-    print(f'Через dict: {seasons_dict[month_num]}')
+    print(f'Через list: {seasons_list[month_num - 1]}')
+    print(f'Через dict: {seasons_dict.get(month_num)}')
 else:
     print('Укажите полжалуйста число от 1 до 12')
