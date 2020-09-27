@@ -19,3 +19,37 @@
 # “количество”: [5, 2, 7],
 # “ед”: [“шт.”]
 # }
+
+database = []
+
+while True:
+    ask = input('Добавить элемент ( э ), вывести анализ ( а ) или  выход ( в ) ')
+
+    if ask == 'э':
+        name_item = input('Название ')
+        price_item = input('Цена ')
+        count_item = input('Количество ')
+        unit_item = input('Единица измерения ')
+        new_item = {'название': name_item, 'цена': price_item, 'количество': count_item, 'eд': unit_item}
+        database.append((len(database) + 1, new_item))
+        print(f'Элемент {name_item} успешно добавлен\n')
+
+    elif ask == 'а':
+        analysis = {'название': [], 'цена': [], 'количество': [], 'eд': []}
+        names = []
+        prices = []
+        counts = []
+        units = []
+        for item in database:
+            names.append(item[1]['название'])
+            prices.append(item[1]['цена'])
+            counts.append(item[1]['количество'])
+            units.append(item[1]['eд'])
+        analysis['название'] = names
+        analysis['цена'] = prices
+        analysis['количество'] = counts
+        analysis['eд'] = units
+        print(analysis)
+
+    elif ask == 'в':
+        break
