@@ -20,36 +20,25 @@
 # “ед”: [“шт.”]
 # }
 
-database = []
+database = [
+            (1, {"название": "компьютер", "цена": 20000, "количество": 5, "eд": "шт."}),
+            (2, {"название": "принтер", "цена": 6000, "количество": 2, "eд": "шт."}),
+            (3, {"название": "сканер", "цена": 2000, "количество": 7, "eд": "шт."})
+           ]
 
 while True:
     ask = input('Добавить элемент ( э ), вывести анализ ( а ) или  выход ( в ) ')
-
     if ask == 'э':
-        name_item = input('Название ')
-        price_item = input('Цена ')
-        count_item = input('Количество ')
-        unit_item = input('Единица измерения ')
-        new_item = {'название': name_item, 'цена': price_item, 'количество': count_item, 'eд': unit_item}
-        database.append((len(database) + 1, new_item))
-        print(f'Элемент {name_item} успешно добавлен\n')
-
+        database.append((len(database) + 1, {'название': input('Название '), 'цена': input('Цена '),
+                                             'количество': input('Количество '), 'eд': input('Единица измерения ')}))
+        print(f'Элемент {database[len(database) - 1][1]["название"]} успешно добавлен\n')
     elif ask == 'а':
         analysis = {'название': [], 'цена': [], 'количество': [], 'eд': []}
-        names = []
-        prices = []
-        counts = []
-        units = []
         for item in database:
-            names.append(item[1]['название'])
-            prices.append(item[1]['цена'])
-            counts.append(item[1]['количество'])
-            units.append(item[1]['eд'])
-        analysis['название'] = names
-        analysis['цена'] = prices
-        analysis['количество'] = counts
-        analysis['eд'] = units
+            analysis['название'].append(item[1]['название'])
+            analysis['цена'].append(item[1]['цена'])
+            analysis['количество'].append(item[1]['количество'])
+            analysis['eд'].append(item[1]['eд'])
         print(analysis)
-
     elif ask == 'в':
         break
