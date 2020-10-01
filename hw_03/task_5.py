@@ -8,8 +8,7 @@ big_num = 0
 while True:
     user_string = input('Введите числа через пробел или q для завершения: ')
     if user_string.find('q') != -1:
-        user_string = map(int, user_string[:user_string.index('q')].split())
-        big_num += sum(user_string)
+        big_num += sum(map(int, user_string[:user_string.index('q')].split()))
         print(big_num)
         break
     else:
