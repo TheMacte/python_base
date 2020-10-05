@@ -5,8 +5,13 @@
 # завершаем цикл. Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет
 # прекращено.
 
-import own_module.a_iterator as a_mod
-from own_module.b_iterator import b_iterator
+from itertools import cycle
 
-print(a_mod.a_iterator(3))
-print(b_iterator(['a', 'b', 'c']))
+
+def b_iterator(list_num):
+    c = 0
+    for el in cycle(list_num):
+        if c > 4:
+            break
+        print(el)
+        c += 1

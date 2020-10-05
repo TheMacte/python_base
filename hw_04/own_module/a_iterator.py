@@ -5,8 +5,6 @@
 # завершаем цикл. Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет
 # прекращено.
 
-import own_module.a_iterator as a_mod
-from own_module.b_iterator import b_iterator
 
-print(a_mod.a_iterator(3))
-print(b_iterator(['a', 'b', 'c']))
+def a_iterator(start_num):
+    return [i for i in range(start_num, 11)]
