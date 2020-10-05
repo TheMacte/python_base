@@ -9,9 +9,7 @@ from itertools import cycle
 
 
 def b_iterator(list_num):
-    c = 0
-    for el in cycle(list_num):
-        if c > 4:
-            break
+    for i, el in enumerate(cycle(list_num), 1):
         print(el)
-        c += 1
+        if i > 4:
+            break
