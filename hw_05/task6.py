@@ -9,3 +9,14 @@
 # Пример словаря:
 #
 # {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
+lessons_hours = {}
+
+with open('lessons.txt') as lessons:
+    for line in lessons.readlines():
+        les = line.split()[0][:-1]
+        l = int(line.split()[1][:-3]) if len(line.split()[1][:-3]) > 0 else 0
+        pr = int(line.split()[2][:-4]) if len(line.split()[2][:-4]) > 0 else 0
+        lab = int(line.split()[3][:-5]) if len(line.split()[3][:-5]) > 0 else 0
+        nums = l + pr + lab
+        lessons_hours[les] = nums
+print(lessons_hours)
