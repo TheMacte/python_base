@@ -30,7 +30,3 @@ stationery.draw()
 pen.draw()
 pencil.draw()
 handle.draw()
-
-
-
-
