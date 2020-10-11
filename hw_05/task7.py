@@ -27,3 +27,4 @@ out_info = [firm, average]
 
 with open("my_file.json", "w") as my_json:
     json.dump(out_info, my_json)
+
