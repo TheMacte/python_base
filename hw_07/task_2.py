@@ -1,3 +1,39 @@
-# 2. Реализовать проект расчета суммарного расхода ткани на производство одежды. Основная сущность (класс) этого проекта — одежда, которая может иметь определенное название. К типам одежды в этом проекте относятся пальто и костюм. У этих типов одежды существуют параметры: размер (для пальто) и рост (для костюма). Это могут быть обычные числа: V и H, соответственно.
-# Для определения расхода ткани по каждому типу одежды использовать формулы: для пальто (V/6.5 + 0.5), для костюма (2 * H + 0.3). Проверить работу этих методов на реальных данных.
-# Реализовать общий подсчет расхода ткани. Проверить на практике полученные на этом уроке знания: реализовать абстрактные классы для основных классов проекта, проверить на практике работу декоратора @property.
+from abc import ABC, abstractmethod
+
+all_cloth = 0  # sum of cloth
+
+
+class Clothes(ABC):
+    def __init__(self, input_param, name=None):
+        global all_cloth
+        self._input_param = input_param
+        self.name = name
+        all_cloth += self.cloth
+
+    @abstractmethod
+    def cloth(self):
+        pass
+
+
+class Topcoat(Clothes):
+    @property
+    def cloth(self):
+        return round(self._input_param / 6.5 + 0.5, 2)
+
+
+class Suit(Clothes):
+    @property
+    def cloth(self):
+        return 2 * self._input_param + 0.3
+
+
+my_topcoat = Topcoat(5)
+print(my_topcoat.cloth)
+
+my_topcoat2 = Topcoat(13)
+print(my_topcoat2.cloth)
+
+my_suit = Suit(3)
+print(my_suit.cloth)
+
+print(all_cloth)
