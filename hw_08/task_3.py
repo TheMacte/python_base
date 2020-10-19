@@ -2,7 +2,7 @@ import re
 
 
 class OwnError(Exception):
-    def __init__(self,num):
+    def __init__(self, num):
         self.num = num
         self.txt = f'Мне нужны цифры... А это... ' \
                    f'В общем я не знаю, что это, но это не то, что я ожидал, что это вообще такое "{num}"'
